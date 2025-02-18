@@ -13,7 +13,10 @@
     <script>
         document.addEventListener("mousemove", (event) => {
             const glow = document.getElementById("glow");
-            glow.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
+            const mouseX = event.clientX;
+            const mouseY = event.clientY;
+            glow.style.left = `${mouseX}px`;
+            glow.style.top = `${mouseY}px`;
         });
     </script>
 </body>
