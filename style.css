@@ -13,5 +13,6 @@ body {
     pointer-events: none;
     border-radius: 50%;
     transition: transform 0.05s linear;
+    transform: translate(-50%, -50%);
 }
 
