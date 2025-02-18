@@ -9,6 +9,12 @@
 <body>
     <div id="nav"></div>
     <div id="glow"></div>
-    <script src="script.js"></script>
+
+    <script>
+        document.addEventListener("mousemove", (event) => {
+            const glow = document.getElementById("glow");
+            glow.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
+        });
+    </script>
 </body>
 </html>
