@@ -161,6 +161,28 @@
       cursor: pointer;
     }
 
+    .card.hijacker-glow {
+      background: linear-gradient(135deg, #EC7A00, #EC0086);
+      position: relative;
+      z-index: 1;
+
+      -webkit-box-shadow:
+       0 0 35px 5px rgba(236, 122, 0, 0.6),
+       0 0 55px 10px rgba(236, 0, 134, 0.5),
+       0 0 85px 15px rgba(236, 0, 134, 0.4);
+
+      -moz-box-shadow:
+       0 0 35px 5px rgba(236, 122, 0, 0.6),
+       0 0 55px 10px rgba(236, 0, 134, 0.5),
+       0 0 85px 15px rgba(236, 0, 134, 0.4);
+
+  box-shadow:
+    0 0 35px 5px rgba(236, 122, 0, 0.6),
+    0 0 55px 10px rgba(236, 0, 134, 0.5),
+    0 0 85px 15px rgba(236, 0, 134, 0.4);
+}
+
+
     .back-button:hover {
       background: #2a2a2a;
     }
@@ -203,23 +225,23 @@
     </section>
 
     <section class="main-section projects">
-      <h2>Projects</h2>
+  <h2>Projects</h2>
 
-      <div class="card" onclick="showProject('lithium')">
-        <h3>LITHIUM RAT BUILDER</h3>
-        <p>A malware builder that creates malware in a very customizable way.</p>
-      </div>
+  <div class="card" onclick="showProject('lithium')">
+    <h3>LITHIUM RAT BUILDER</h3>
+    <p>A malware builder that creates malware in a very customizable way.</p>
+  </div>
 
-      <div class="card" onclick="showProject('hijacker')">
-        <h3>SCHOOL CHROMEBOOK HIJACKER</h3>
-        <p>A shimmer that boots Debian on an enrolled chromebook.</p>
-      </div>
+  <div class="card hijacker-glow" onclick="showProject('hijacker')">
+    <h3>SCHOOL CHROMEBOOK HIJACKER</h3>
+    <p>A shimmer that boots Debian on an enrolled chromebook.</p>
+  </div>
 
-      <div class="card" onclick="showProject('recoil')">
-        <h3>R6 RECOIL SCRIPT</h3>
-        <p>No recoil script for Rainbow Six Siege.</p>
-      </div>
-    </section>
+  <div class="card" onclick="showProject('recoil')">
+    <h3>R6 RECOIL SCRIPT</h3>
+    <p>No recoil script for Rainbow Six Siege.</p>
+  </div>
+</section>
 
     <section class="main-section contact">
       <h2>Contact</h2>
