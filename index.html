@@ -10,7 +10,6 @@
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       font-family: 'Segoe UI', sans-serif;
       background: #111;
@@ -18,12 +17,10 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-
     a {
       color: inherit;
       text-decoration: none;
     }
-
     header, section.main-section {
       padding: 4rem 2rem;
       max-width: 1000px;
@@ -31,7 +28,6 @@
       background: #1a1a1a;
       border-radius: 16px;
     }
-
     header {
       background: linear-gradient(135deg, #EC7A00, #EC0086);
       color: white;
@@ -41,17 +37,14 @@
       border-radius: 24px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     }
-
     header h1 {
       font-size: 3rem;
       margin-bottom: 0.5rem;
     }
-
     header p {
       font-size: 1.2rem;
       color: #ddd;
     }
-
     section h2 {
       margin-bottom: 1rem;
       border-bottom: 2px solid #444;
@@ -59,12 +52,10 @@
       font-size: 2rem;
       color: #fafafa;
     }
-
     .about p, .contact p {
       max-width: 700px;
       margin-bottom: 1rem;
     }
-
     .skills ul {
       display: flex;
       flex-wrap: wrap;
@@ -72,36 +63,31 @@
       gap: 1rem;
       padding: 0;
     }
-
     .skills li {
       background: linear-gradient(135deg, #EC7A00, #EC0086);
       padding: 0.5rem 1rem;
       border-radius: 20px;
       font-size: 0.95rem;
     }
-
     .projects .card {
-      background: linear-gradient(135deg, #EC7A00, #EC0086);
+      background: radial-gradient(circle, #EC7A00 0%, #EC0086 100%);
       padding: 1.5rem;
       border-radius: 12px;
       margin-bottom: 1.5rem;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
+      box-shadow: 0 0 6px rgba(236, 122, 0, 0.5);
     }
-
     .projects .card:hover {
       transform: scale(1.02);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 0 12px rgba(236, 122, 0, 0.8);
     }
-
     footer {
       text-align: center;
       padding: 2rem;
       font-size: 0.9rem;
       color: #777;
     }
-
-    /* Project detail styles */
     .project-view {
       display: none;
       position: absolute;
@@ -116,7 +102,6 @@
       align-items: center;
       justify-content: center;
     }
-
     .project-content {
       background: #1a1a1a;
       border-radius: 20px;
@@ -125,23 +110,19 @@
       width: 90%;
       text-align: center;
     }
-
     .project-content h1 {
       font-size: 2rem;
       margin-bottom: 1rem;
     }
-
     .project-content hr {
       border: none;
       height: 2px;
       background: #444;
       margin: 1rem 0;
     }
-
     .project-content p {
       font-size: 1rem;
     }
-
     .back-button {
       position: absolute;
       top: 30px;
@@ -160,46 +141,20 @@
       border: 3px solid white;
       cursor: pointer;
     }
-
-    .card.hijacker-glow {
-      background: linear-gradient(135deg, #EC7A00, #EC0086);
-      position: relative;
-      z-index: 1;
-
-      -webkit-box-shadow:
-       0 0 35px 5px rgba(236, 122, 0, 0.6),
-       0 0 55px 10px rgba(236, 0, 134, 0.5),
-       0 0 85px 15px rgba(236, 0, 134, 0.4);
-
-      -moz-box-shadow:
-       0 0 35px 5px rgba(236, 122, 0, 0.6),
-       0 0 55px 10px rgba(236, 0, 134, 0.5),
-       0 0 85px 15px rgba(236, 0, 134, 0.4);
-
-  box-shadow:
-    0 0 35px 5px rgba(236, 122, 0, 0.6),
-    0 0 55px 10px rgba(236, 0, 134, 0.5),
-    0 0 85px 15px rgba(236, 0, 134, 0.4);
-}
-
-
     .back-button:hover {
       background: #2a2a2a;
     }
-
     .hidden {
       display: none;
     }
   </style>
 </head>
 <body>
-  <!-- Main Page -->
   <div id="home">
     <header>
       <h1>VERTIGO</h1>
       <p>Creative Web Developer & Designer</p>
     </header>
-
     <section class="main-section about">
       <h2>About Me</h2>
       <p>
@@ -209,7 +164,6 @@
         With a background in both design and development, I bridge the gap between aesthetic and functionality.
       </p>
     </section>
-
     <section class="main-section skills">
       <h2>Skills</h2>
       <ul>
@@ -223,39 +177,31 @@
         <li>Lua</li>
       </ul>
     </section>
-
     <section class="main-section projects">
-  <h2>Projects</h2>
-
-  <div class="card" onclick="showProject('lithium')">
-    <h3>LITHIUM RAT BUILDER</h3>
-    <p>A malware builder that creates malware in a very customizable way.</p>
-  </div>
-
-  <div class="card hijacker-glow" onclick="showProject('hijacker')">
-    <h3>SCHOOL CHROMEBOOK HIJACKER</h3>
-    <p>A shimmer that boots Debian on an enrolled chromebook.</p>
-  </div>
-
-  <div class="card" onclick="showProject('recoil')">
-    <h3>R6 RECOIL SCRIPT</h3>
-    <p>No recoil script for Rainbow Six Siege.</p>
-  </div>
-</section>
-
+      <h2>Projects</h2>
+      <div class="card" onclick="showProject('lithium')">
+        <h3>LITHIUM RAT BUILDER</h3>
+        <p>A malware builder that creates malware in a very customizable way.</p>
+      </div>
+      <div class="card" onclick="showProject('hijacker')">
+        <h3>SCHOOL CHROMEBOOK HIJACKER</h3>
+        <p>A shimmer that boots Debian on an enrolled chromebook.</p>
+      </div>
+      <div class="card" onclick="showProject('recoil')">
+        <h3>R6 RECOIL SCRIPT</h3>
+        <p>No recoil script for Rainbow Six Siege.</p>
+      </div>
+    </section>
     <section class="main-section contact">
       <h2>Contact</h2>
       <p>Email: vertigoftbl@gmail.com</p>
       <p>Phone: 999</p>
       <p>Location: United Condom</p>
     </section>
-
     <footer>
       © 2025 VERTIGO. All rights reserved.
     </footer>
   </div>
-
-  <!-- Project Views -->
   <div id="lithium" class="project-view hidden">
     <div class="back-button" onclick="goBack()">&lt;</div>
     <div class="project-content">
@@ -266,7 +212,6 @@
       </p>
     </div>
   </div>
-
   <div id="hijacker" class="project-view hidden">
     <div class="back-button" onclick="goBack()">&lt;</div>
     <div class="project-content">
@@ -274,13 +219,11 @@
       <hr />
       <p>
         SEND £5 TO VERTIGOFTBL@GMAIL.COM [ON PAYPAL] AND EMAIL IT WITH A SCREENSHOT OF THE PAYMENT AND YOUR DEVICE TYPE TO GET THE SHIMMER AND INSTRUCTIONS. 
-<br>    
-<br>
-Dont know what your device type is? <br><br> Type "chrome://version" into the url bar and locate the platform e.g: "Platform: 14526.83.0 (Official Build) stable-channel octopus." The last part is your device type like: octopus
+        <br><br>
+        Dont know what your device type is? <br><br> Type "chrome://version" into the url bar and locate the platform e.g: "Platform: 14526.83.0 (Official Build) stable-channel octopus." The last part is your device type like: octopus
       </p>
     </div>
   </div>
-
   <div id="recoil" class="project-view hidden">
     <div class="back-button" onclick="goBack()">&lt;</div>
     <div class="project-content">
@@ -291,21 +234,17 @@ Dont know what your device type is? <br><br> Type "chrome://version" into the ur
       </p>
     </div>
   </div>
-
   <script>
     function showProject(id) {
       document.getElementById('home').style.display = 'none';
       document.getElementById(id).classList.remove('hidden');
     }
-
     function goBack() {
       document.querySelectorAll('.project-view').forEach(view => {
         view.classList.add('hidden');
       });
       document.getElementById('home').style.display = 'block';
     }
-
-    // Scroll animation (optional)
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -314,7 +253,6 @@ Dont know what your device type is? <br><br> Type "chrome://version" into the ur
         }
       });
     }, { threshold: 0.1 });
-
     document.querySelectorAll("section.main-section").forEach((sec) => {
       sec.style.opacity = 0;
       sec.style.transform = "translateY(30px)";
