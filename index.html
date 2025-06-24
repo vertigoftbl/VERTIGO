@@ -70,17 +70,28 @@
       font-size: 0.95rem;
     }
     .projects .card {
-      background: radial-gradient(circle, #EC7A00 0%, #EC0086 100%);
+      background: linear-gradient(135deg, #EC0086, #EC7A00);
       padding: 1.5rem;
       border-radius: 12px;
       margin-bottom: 1.5rem;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
-      box-shadow: 0 0 6px rgba(236, 122, 0, 0.5);
+      box-shadow: none;
     }
-    .projects .card:hover {
+    .projects .card.school {
+      box-shadow:
+        -5px 0 15px rgba(236, 0, 134, 0.7),
+        5px 0 15px rgba(236, 122, 0, 0.7);
+    }
+    .projects .card.school:hover {
       transform: scale(1.02);
-      box-shadow: 0 0 12px rgba(236, 122, 0, 0.8);
+      box-shadow:
+        -5px 0 20px rgba(236, 0, 134, 0.9),
+        5px 0 20px rgba(236, 122, 0, 0.9);
+    }
+    .projects .card:not(.school):hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
     }
     footer {
       text-align: center;
@@ -183,7 +194,7 @@
         <h3>LITHIUM RAT BUILDER</h3>
         <p>A malware builder that creates malware in a very customizable way.</p>
       </div>
-      <div class="card" onclick="showProject('hijacker')">
+      <div class="card school" onclick="showProject('hijacker')">
         <h3>SCHOOL CHROMEBOOK HIJACKER</h3>
         <p>A shimmer that boots Debian on an enrolled chromebook.</p>
       </div>
