@@ -1,16 +1,28 @@
 <?php
 $token = $_GET['token'] ?? null;
 
-if ($token && file_exists("valid_tokens.txt")) {
-    $tokens = file("valid_tokens.txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+if ($token) {
+    // Look for the token file inside tokens folder (search tokens folder for the token)
+    $tokenFiles = glob(__DIR__ . "/tokens/*.txt");
 
-    if (in_array($token, $tokens)) {
-        // Remove the token so it can't be reused
-        $tokens = array_filter($tokens, fn($t) => $t !== $token);
-        file_put_contents("valid_tokens.txt", implode(PHP_EOL, $tokens));
+    $found = false;
+    $foundFile = '';
 
-        // Download the file
-        $file = "downloads/hyvane_v1.zip";
+    foreach ($tokenFiles as $file) {
+        $content = trim(file_get_contents($file));
+        if ($content === $token) {
+            $found = true;
+            $foundFile = $file;
+            break;
+        }
+    }
+
+    if ($found) {
+        // Delete the token file to invalidate token
+        unlink($foundFile);
+
+        // Serve the download file
+        $file = __DIR__ . "/downloads/hyvane_v1.zip";
         if (file_exists($file)) {
             header('Content-Description: File Transfer');
             header('Content-Type: application/octet-stream');
@@ -24,7 +36,8 @@ if ($token && file_exists("valid_tokens.txt")) {
         }
     }
 }
-// If token invalid or file missing, redirect to homepage
+
+// Token invalid or file missing, redirect home
 header("Location: /");
 exit;
 ?>
