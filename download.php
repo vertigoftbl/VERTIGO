@@ -2,7 +2,6 @@
 $token = $_GET['token'] ?? null;
 
 if ($token) {
-    // Look for the token file inside tokens folder (search tokens folder for the token)
     $tokenFiles = glob(__DIR__ . "/tokens/*.txt");
 
     $found = false;
