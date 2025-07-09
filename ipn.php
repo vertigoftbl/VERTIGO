@@ -40,21 +40,24 @@ curl_close($ch);
 if (strcmp($res, "VERIFIED") == 0) {
     // ✅ The IPN is legitimate
     // Extract needed data
-    $item_name = $_POST['item_name'];
-    $payment_status = $_POST['payment_status'];
-    $payment_amount = $_POST['mc_gross'];
-    $payment_currency = $_POST['mc_currency'];
-    $txn_id = $_POST['txn_id'];
-    $receiver_email = $_POST['receiver_email'];
-    $payer_email = $_POST['payer_email'];
+    $payment_status = $_POST['payment_status'] ?? '';
+    $txn_id = $_POST['txn_id'] ?? '';
+    $receiver_email = $_POST['receiver_email'] ?? '';
+    $payer_email = $_POST['payer_email'] ?? '';
 
-    // You MUST validate:
-    // 1. payment_status == "Completed"
-    // 2. receiver_email matches your PayPal email
-    // 3. amount and currency are correct
+    // Validate payment
     if ($payment_status == "Completed" && $receiver_email == "vchipz69@gmail.com") {
-        // 💾 Save to your database or mark as paid
-        file_put_contents("ipn_log.txt", "Payment verified: txn_id=$txn_id, payer_email=$payer_email\n", FILE_APPEND);
+        // Generate a unique token for download
+        $token = bin2hex(random_bytes(16));
+
+        // Save token to file for validation, linked to txn_id
+        if (!is_dir("tokens")) {
+            mkdir("tokens", 0755, true);
+        }
+        file_put_contents("tokens/$txn_id.txt", $token);
+
+        // Log the successful payment
+        file_put_contents("ipn_log.txt", "Payment verified: txn_id=$txn_id, payer_email=$payer_email, token=$token\n", FILE_APPEND);
     }
 } else if (strcmp($res, "INVALID") == 0) {
     // 🚨 Invalid IPN
