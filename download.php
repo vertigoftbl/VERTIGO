@@ -1,24 +1,30 @@
 <?php
-// Get the transaction ID from the URL (PayPal returns it as 'tx')
-if (isset($_GET['tx'])) {
-    $txn_id = preg_replace('/[^a-zA-Z0-9_-]/', '', $_GET['tx']); // sanitize
+$token = $_GET['token'] ?? null;
 
-    $tokenFile = __DIR__ . "/tokens/$txn_id.txt";
-    if (file_exists($tokenFile)) {
-        $token = trim(file_get_contents($tokenFile));
+if ($token && file_exists("valid_tokens.txt")) {
+    $tokens = file("valid_tokens.txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
-        // Redirect to download.php with the token
-        header("Location: download.php?token=" . urlencode($token));
-        exit;
-    } else {
-        // Token not found (maybe IPN hasn't come in yet)
-        echo "Your payment is being processed. Please wait a moment and refresh this page.";
-        // Optionally add meta-refresh or JS to retry after few seconds
-        exit;
+    if (in_array($token, $tokens)) {
+        // Remove the token so it can't be reused
+        $tokens = array_filter($tokens, fn($t) => $t !== $token);
+        file_put_contents("valid_tokens.txt", implode(PHP_EOL, $tokens));
+
+        // Download the file
+        $file = "downloads/hyvane_v1.zip";
+        if (file_exists($file)) {
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename="' . basename($file) . '"');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate');
+            header('Pragma: public');
+            header('Content-Length: ' . filesize($file));
+            readfile($file);
+            exit;
+        }
     }
-} else {
-    // No tx parameter, just redirect to homepage or show message
-    header("Location: /");
-    exit;
 }
+// If token invalid or file missing, redirect to homepage
+header("Location: /");
+exit;
 ?>
