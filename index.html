@@ -2,274 +2,348 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VERTIGO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modern Sleek Website</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+    
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #111;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #2A2A2A;
       color: #eee;
-      line-height: 1.6;
+      position: relative;
+      min-height: 100vh;
       overflow-x: hidden;
     }
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-    header, section.main-section {
-      padding: 4rem 2rem;
-      max-width: 1000px;
-      margin: 2rem auto;
-      background: #1a1a1a;
-      border-radius: 16px;
-    }
-    header {
-      background: linear-gradient(135deg, #EC7A00, #EC0086);
-      color: white;
-      padding-top: 5rem;
-      padding-bottom: 5rem;
-      margin-top: 4rem;
-      border-radius: 24px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    }
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-    }
-    header p {
-      font-size: 1.2rem;
-      color: #ddd;
-    }
-    section h2 {
-      margin-bottom: 1rem;
-      border-bottom: 2px solid #444;
-      padding-bottom: 0.5rem;
-      font-size: 2rem;
-      color: #fafafa;
-    }
-    .about p, .contact p {
-      max-width: 700px;
-      margin-bottom: 1rem;
-    }
-    .skills ul {
-      display: flex;
-      flex-wrap: wrap;
-      list-style: none;
-      gap: 1rem;
-      padding: 0;
-    }
-    .skills li {
-      background: linear-gradient(135deg, #EC7A00, #EC0086);
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-size: 0.95rem;
-    }
-    .projects .card {
-      background: linear-gradient(135deg, #EC0086, #EC7A00);
-      padding: 1.5rem;
-      border-radius: 12px;
-      margin-bottom: 1.5rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      box-shadow: none;
-    }
-    .projects .card.school {
-      box-shadow:
-        -5px 0 15px rgba(236, 0, 134, 0.7),
-        5px 0 15px rgba(236, 122, 0, 0.7);
-    }
-    .projects .card.school:hover {
-      transform: scale(1.02);
-      box-shadow:
-        -5px 0 20px rgba(236, 0, 134, 0.9),
-        5px 0 20px rgba(236, 122, 0, 0.9);
-    }
-    .projects .card:not(.school):hover {
-      transform: scale(1.02);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #777;
-    }
-    .project-view {
-      display: none;
-      position: absolute;
+
+    body::before {
+      content: "";
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      min-height: 100vh;
-      background: #111;
-      color: #eee;
-      padding: 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      height: 100%;
+      background: url('image.jpg') no-repeat center center / cover;
+      filter: blur(4px);
+      z-index: -1;
     }
-    .project-content {
-      background: #1a1a1a;
+
+    nav {
+      margin: 20px 350px;
+      max-width: 550px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 15px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
       border-radius: 20px;
-      padding: 2rem;
-      max-width: 700px;
-      width: 90%;
-      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
     }
-    .project-content h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    .project-content hr {
-      border: none;
-      height: 2px;
-      background: #444;
-      margin: 1rem 0;
-    }
-    .project-content p {
-      font-size: 1rem;
-    }
-    .back-button {
-      position: absolute;
-      top: 30px;
-      left: 30px;
-      width: 50px;
-      height: 50px;
-      background: #1a1a1a;
-      border-radius: 50%;
+
+    .nav-links {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      font-size: 2rem;
+      justify-content: space-between;
+      width: 100%;
+      gap: 20px;
+    }
+
+    nav a {
+      position: relative;
       text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 8px;
+      white-space: nowrap;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+      overflow: hidden;
+    }
+
+    nav a::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    nav a:hover::before {
+      opacity: 1;
+    }
+
+    nav a {
+      z-index: 0;
+    }
+    nav a * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .product-card {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: transform 1s ease, box-shadow 1s ease;
+      border-radius: 20px;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    }
+
+    .product-image {
+      background: #333;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: #ccc;
+    }
+
+    .product-info {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      padding: 15px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #eee;
+    }
+
+    .product-name {
       font-weight: bold;
-      border: 3px solid white;
-      cursor: pointer;
+      margin-bottom: 8px;
+      color: #fff;
+      text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.2),
+        0 0 16px rgba(255, 255, 255, 0.3),
+        0 0 32px rgba(255, 255, 255, 0.4);
     }
-    .back-button:hover {
-      background: #2a2a2a;
+
+    .product-description {
+      font-size: 0.95em;
+      margin-bottom: 10px;
+      color: #ddd;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
     }
-    .hidden {
-      display: none;
+
+    .in-stock {
+      font-size: 0.9em;
+      color: #00cc66;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
     }
+
+    .not-in-stock {
+      font-size: 0.9em;
+      color: #ff4444;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+    }
+
+    .stars {
+      color: gold;
+      font-size: 1.1em;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+    }
+
+    .price {
+      font-weight: 700;
+      font-size: 1.1em;
+      margin-top: 6px;
+      color: #fff;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+    }
+
+    @media (max-width: 800px) {
+      nav {
+        width: 100%;
+        margin: 20px auto;
+      }
+      .nav-links {
+        justify-content: center;
+        gap: 10px;
+      }
+    }
+
+    .product-image img {
+      width: 150%;
+      height: 150%;
+      object-fit: contain;
+    }
+
+    .products a {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+    
   </style>
 </head>
 <body>
-  <div id="home">
-    <header>
-      <h1>VERTIGO</h1>
-      <p>Creative Web Developer & Designer</p>
-    </header>
-    <section class="main-section about">
-      <h2>About Me</h2>
-      <p>
-        I'm a passionate web developer with a knack for building clean and interactive web experiences. I enjoy turning complex problems into simple, beautiful solutions.
-      </p>
-      <p>
-        With a background in both design and development, I bridge the gap between aesthetic and functionality.
-      </p>
-    </section>
-    <section class="main-section skills">
-      <h2>Skills</h2>
-      <ul>
-        <li>HTML5</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>Python</li>
-        <li>Node.js</li>
-        <li>C#</li>
-        <li>C++</li>
-        <li>Lua</li>
-      </ul>
-    </section>
-    <section class="main-section projects">
-      <h2>Projects</h2>
-      <div class="card" onclick="showProject('lithium')">
-        <h3>LITHIUM RAT BUILDER</h3>
-        <p>A malware builder that creates malware in a very customizable way.</p>
-      </div>
-      <div class="card school" onclick="showProject('hijacker')">
-        <h3>SCHOOL CHROMEBOOK HIJACKER</h3>
-        <p>A shimmer that boots Debian on an enrolled chromebook.</p>
-      </div>
-      <div class="card" onclick="showProject('recoil')">
-        <h3>R6 RECOIL SCRIPT</h3>
-        <p>No recoil script for Rainbow Six Siege.</p>
-      </div>
-    </section>
-    <section class="main-section contact">
-      <h2>Contact</h2>
-      <p>Email: vertigoftbl@gmail.com</p>
-      <p>Phone: 999</p>
-      <p>Location: United Condom</p>
-    </section>
-    <footer>
-      © 2025 VERTIGO. All rights reserved.
-    </footer>
-  </div>
-  <div id="lithium" class="project-view hidden">
-    <div class="back-button" onclick="goBack()">&lt;</div>
-    <div class="project-content">
-      <h1>LITHIUM RAT BUILDER</h1>
-      <hr />
-      <p>
-        Lithium is a powerful RAT builder designed for customization and ease of deployment. It enables the user to create tailored payloads with advanced features and evasion techniques. [Lithium is currently in development as of 2024/2025 and is not yet available for public use.]
-      </p>
+  <nav>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/products">Products</a>
+      <a href="/news">News</a>
+      <a href="/contact">Contact Us</a>
+      <a href="/about">About</a>
     </div>
-  </div>
-  <div id="hijacker" class="project-view hidden">
-    <div class="back-button" onclick="goBack()">&lt;</div>
-    <div class="project-content">
-      <h1>SCHOOL CHROMEBOOK HIJACKER</h1>
-      <hr />
-      <p>
-        SEND £5 TO VERTIGOFTBL@GMAIL.COM [ON PAYPAL] AND EMAIL IT WITH A SCREENSHOT OF THE PAYMENT AND YOUR DEVICE TYPE TO GET THE SHIMMER AND INSTRUCTIONS. 
-        <br><br>
-        Dont know what your device type is? <br><br> Type "chrome://version" into the url bar and locate the platform e.g: "Platform: 14526.83.0 (Official Build) stable-channel octopus." The last part is your device type like: octopus
-      </p>
+  </nav>
+
+  <section class="products">
+    <a href="https://www.paypal.com/ncp/payment/Q4QJHCJRZLA36" target="_blank" style="text-decoration: none; color: inherit;">
+      <div class="product-card">
+        <div class="product-image">
+          <img src="product1.png" alt="HYVANE V1">
+        </div>
+        <div class="product-info">
+          <div>
+            <div class="product-name">HYVANE V1</div>
+            <div class="product-description">First version of our high quality Nuke Bot for Discord.</div>
+          </div>
+          <div>
+            <div class="not-in-stock">✖ Not in Stock</div>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <div class="price">£4.99</div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+
+    <div class="product-card">
+      <div class="product-image">Unavailable</div>
+      <div class="product-info">
+        <div>
+          <div class="product-name">HYVANE V2 [COMING SOON]</div>
+          <div class="product-description">Second version of our high quality Nuke Bot for Discord.</div>
+        </div>
+        <div>
+          <div class="not-in-stock">✖ Not in Stock</div>
+          <div class="stars">⭐⭐⭐⭐</div>
+          <div class="price">£9.99</div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div id="recoil" class="project-view hidden">
-    <div class="back-button" onclick="goBack()">&lt;</div>
-    <div class="project-content">
-      <h1>R6 RECOIL SCRIPT</h1>
-      <hr />
-      <p>
-        A no-recoil script for Rainbow Six Siege using pattern detection and precise input automation for consistent performance. [Currently in development as of 2025 and not yet available for public use.]
-      </p>
+
+    <div class="product-card">
+      <div class="product-image">Unavailable</div>
+      <div class="product-info">
+        <div>
+          <div class="product-name">E-HYVANE</div>
+          <div class="product-description">Advanced RAT Builder with extreme customizable features.</div>
+        </div>
+        <div>
+          <div class="not-in-stock">✖ Not in Stock</div>
+          <div class="stars">⭐⭐⭐⭐</div>
+          <div class="price">£19.99</div>
+        </div>
+      </div>
     </div>
-  </div>
-  <script>
-    function showProject(id) {
-      document.getElementById('home').style.display = 'none';
-      document.getElementById(id).classList.remove('hidden');
-    }
-    function goBack() {
-      document.querySelectorAll('.project-view').forEach(view => {
-        view.classList.add('hidden');
-      });
-      document.getElementById('home').style.display = 'block';
-    }
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = 1;
-          entry.target.style.transform = "translateY(0)";
-        }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll("section.main-section").forEach((sec) => {
-      sec.style.opacity = 0;
-      sec.style.transform = "translateY(30px)";
-      sec.style.transition = "all 0.6s ease-out";
-      observer.observe(sec);
-    });
-  </script>
+
+    <div class="product-card">
+      <div class="product-image">Unavailable</div>
+      <div class="product-info">
+        <div>
+          <div class="product-name">REVENGE RECOIL</div>
+          <div class="product-description">Simple Recoil Script for Rainbow Six Siege (PC)</div>
+        </div>
+        <div>
+          <div class="in-stock">✔ In Stock</div>
+          <div class="stars">⭐⭐⭐</div>
+          <div class="price">£2.49</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image">Unavailable</div>
+      <div class="product-info">
+        <div>
+          <div class="product-name">Product Five</div>
+          <div class="product-description">A brief description of Product Five.</div>
+        </div>
+        <div>
+          <div class="in-stock">✔ In Stock</div>
+          <div class="stars">⭐⭐⭐⭐</div>
+          <div class="price">FREE</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image">Unavailable</div>
+      <div class="product-info">
+        <div>
+          <div class="product-name">Product Six</div>
+          <div class="product-description">A brief description of Product Six.</div>
+        </div>
+        <div>
+          <div class="in-stock">✔ In Stock</div>
+          <div class="stars">⭐⭐⭐</div>
+          <div class="price">FREE</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image">Unavailable</div>
+      <div class="product-info">
+        <div>
+          <div class="product-name">Product Seven</div>
+          <div class="product-description">A brief description of Product Seven.</div>
+        </div>
+        <div>
+          <div class="in-stock">✔ In Stock</div>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <div class="price">FREE</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image">Unavailable</div>
+      <div class="product-info">
+        <div>
+          <div class="product-name">Product Eight</div>
+          <div class="product-description">A brief description of Product Eight.</div>
+        </div>
+        <div>
+          <div class="in-stock">✔ In Stock</div>
+          <div class="stars">⭐⭐⭐⭐</div>
+          <div class="price">FREE</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </body>
 </html>
